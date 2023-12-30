@@ -27,3 +27,107 @@ Sample Output 3 :
 * * * *
 * * * *
 * * * *
+
+Solution :
+def nForest(n:int) ->None:
+    for i in range(n):
+        for j in range(n):
+            print('* ',end="")
+        print('\n',end="")
+
+
+
+
+
+PROBLEM 2:
+Problem Name: N/2-Forest
+Problem statement
+Sam is making a forest visualizer. An N-dimensional forest is represented by the pattern of size NxN filled with ‘*’.
+
+An N/2-dimensional forest is represented by the lower triangle of the pattern filled with ‘*’.
+
+For every value of ‘N’, help sam to print the corresponding N/2-dimensional forest.
+
+Example:
+Input:  ‘N’ = 3
+
+Output: 
+* 
+* *
+* * *
+Explanation Of Sample Input 1 :
+For N = 3, fill all the rows and columns in the lower triangle of 3x3 matrix with ‘*’.
+Sample Input 2 :
+1
+Sample Output 2 :
+* 
+
+Solution:
+def nForest(n: int) -> None:
+    for i in range(n):
+        for j in range(i+1):
+            print('* ', end="")
+        print('\n', end="")
+
+
+
+PROBLEM 3:
+Problem Name : N-Triangles
+Problem statement
+Sam is making a Triangular painting for a maths project.
+
+An N-dimensional Triangle is represented by the lower triangle of the pattern filled with integers starting from 1.
+
+For every value of ‘N’, help sam to print the corresponding N-dimensional Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+1
+1 2 
+1 2 3
+Sample Input 2 :
+1
+Sample Output 2 :
+1
+
+Solution:
+def nTriangle(n: int) ->None:
+    for i in range(n):
+        for j in range(i+1):
+            print(str(j+1)+' ',end='')
+        print('\n',end='')
+
+
+PROBLEM 4:
+Problem Name: Triangle pattern
+Problem statement
+Sam is making a Triangular painting for a maths project.
+
+An N-dimensional Triangle is represented by the lower triangle of the pattern filled with integers representing the row number.
+
+For every value of ‘N’, help sam to print the corresponding Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+1
+2 2 
+3 3 3
+Sample Input 2 :
+1
+Sample Output 2 :
+1
+
+Solution:
+def triangle( n:int) ->None:
+    # Write your solution here.
+    for i in range(n):
+        for j in range(i+1):
+            print(str(i+1)+' ',end="")
+        print('\n',end="")
+    pass
+
+

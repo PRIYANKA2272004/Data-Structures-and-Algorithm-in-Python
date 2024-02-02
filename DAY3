@@ -1,0 +1,86 @@
+PROBLEM NAME: Check whether the String is an Anagram or not
+
+One string is an anagram of another if the second is simply a rearrangement of the first. For example, 'heart' and 'earth' are anagrams. The strings 'python' and 'typhon' are anagrams as well.
+
+There are many Solutions to solve this problem.
+
+APPROACH 1:
+"Checking Off"
+
+code:
+def anagram(s1,s2):
+    a_list=list(s2)
+    pos1=0
+    check = True
+    while pos1<len(s1) and check:
+        pos2=0
+        check1=False
+        while pos2<len(a_list) and not check1:
+            if s1[pos1] == a_list[pos2]:
+                check1 = True
+            else:
+                pos2=pos2+1
+        if check1:
+            a_list[pos2]=None
+        else:
+            check = False
+        pos1=pos1+1
+    return check
+print(anagram('priya','ayirp'))
+
+output: True
+
+Complexity : O(n^2)
+
+
+APPROACH 2:
+"Sort and Compare"
+
+Code:
+def anagram(s1,s2):
+    a_list=list(s1)
+    b_list=list(s2)
+    pos=0
+    check=True
+    a_list.sort()
+    b_list.sort()
+    while pos<len(a_list) and check:
+        if a_list[pos]==b_list[pos]:
+            pos=pos+1
+        else:
+            check=False
+    return check
+print(anagram('priyo','yopri'))
+
+Output: True
+
+
+APPROACH 3:
+"Count and Compare"
+
+Code:
+def anagram_solution4(s1, s2):
+    c1 = [0] * 26
+    c2 = [0] * 26
+    for i in range(len(s1)):
+        pos = ord(s1[i]) - ord('a')
+        c1[pos] = c1[pos] + 1
+    for i in range(len(s2)):
+        pos = ord(s2[i]) - ord('a')
+        c2[pos] = c2[pos] + 1
+    j = 0
+    still_ok = True
+    while j < 26 and still_ok:
+        if c1[j] == c2[j]:
+            j = j + 1
+        else:
+            still_ok = False
+    return still_ok
+print(anagram_solution4('apple','pleap'))
+
+Output: True
+
+Explanation: The code initializes arrays c1 and c2 to count the occurrences of each lowercase letter in the alphabet for strings s1 and s2.
+It iterates through both strings, updating the count of each character in the respective arrays.
+It compares the counts of characters in both arrays and returns True if they are equal for all characters, indicating the strings are anagrams.
+The example 'apple' and 'pleap' returns True as the character counts match, confirming an anagram relationship.

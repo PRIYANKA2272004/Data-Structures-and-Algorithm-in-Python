@@ -1,0 +1,104 @@
+STACK
+
+A stack (sometimes called a “push-down stack”) is an ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end.
+This end is commonly referred to as the “top.” The end opposite the top is known as the “base.”
+This ordering principle is sometimes called LIFO,last-in first-out. It provides an ordering based on length of time in the collection. 
+Newer items are near the top, while older items are near the base.
+
+Datatypes:
+
+• Stack() creates a new stack that is empty. It needs no parameters and returns an empty
+stack.
+• push(item) adds a new item to the top of the stack. It needs the item and returns
+nothing.
+• pop() removes the top item from the stack. It needs no parameters and returns the item.
+The stack is modified.
+• peek() returns the top item from the stack but does not remove it. It needs no parameters. The stack is not modified.
+• is_empty() tests to see whether the stack is empty. It needs no parameters and returns
+a boolean value.
+• size() returns the number of items on the stack. It needs no parameters and returns an
+integer.
+
+Program 1:
+
+# Completed implementation of a stack ADT
+class Stack:
+  def __init__(self):
+    self.items = []
+  def is_empty(self):
+    return self.items == []
+  def push(self, item):
+    self.items.append(item)
+  def pop(self):  
+    return self.items.pop()
+  def peek(self):
+    return self.items[len(self.items)-1]
+  def size(self):
+    return len(self.items)
+s= Stack()
+print(s.is_empty())
+s.push(4)
+s.push('dog')
+s.push(8)
+print(s.peek())
+s.push(True)
+print(s.size())
+print(s.is_empty())
+s.push(22)
+print(s.pop())
+print(s.pop())
+print(s.size())
+
+output:
+
+True
+8
+4
+False
+22
+True
+3
+
+
+
+Program 2:
+Balanced Parentheses
+
+class Stack:
+  def __init__(self):
+    self.items = []
+  def is_empty(self):
+    return self.items == []
+  def push(self, item):
+    self.items.append(item)
+  def pop(self):  
+    return self.items.pop()
+  def peek(self):
+    return self.items[len(self.items)-1]
+  def size(self):
+    return len(self.items)
+
+def par_checker(symbol_string):
+    s = Stack()
+    balanced = True
+    index = 0
+    while index < len(symbol_string) and balanced:
+        symbol = symbol_string[index]
+        if symbol == "(":
+            s.push(symbol)
+        else:
+            if s.is_empty():
+                balanced = False
+            else:
+                s.pop()
+        index = index + 1
+    if balanced and s.is_empty():
+        return True
+    else:
+        return False
+print(par_checker('((()))'))
+print(par_checker('(()'))
+
+Output:
+True
+False
